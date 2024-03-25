@@ -44,12 +44,12 @@ int main() {
                     switch(alimento) {
                         case 4: //Ave, terrestre e Onivoro
                             printf("Avestruz");
-                            return 0;
                             break;
                         case 1: //Ave, terrestre e Carnivoro
                             printf("Pinguim");
                             break;
                     }
+                    break;
 
                 case 2: //Ave e Aquático
                     printf("Pato");
