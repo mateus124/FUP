@@ -35,7 +35,7 @@ int main() {
         x = x%dimensao;
     }
 
-    //excessão
+    //excessão, pois são números primos vtmnc
     if((x == 13 || x == 15) && direcao == 'L') {
         x = 0;
     } 
