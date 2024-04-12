@@ -1,29 +1,52 @@
 #include <stdio.h>
 
 int main()  {
-    int profundidade, tamSalto, escorrega, altura = 0, aux = 0;
-    scanf("%d %d %d", &profundidade, &tamSalto, &escorrega);
-    
-    while(altura+tamSalto < profundidade) {
-        printf("%d %d\n", altura, (altura+tamSalto));
-        altura += ((tamSalto-escorrega) - aux);
-        tamSalto -= 10;
+    int profundidade, salto, escorrega, altura = 0, formatacao = 0, aux = 0;
+    scanf("%d %d %d", &profundidade, &salto, &escorrega);
+    altura -= salto;
 
-        if(altura+tamSalto < 0) {
+    while(1) {
+        //pulo
+        if(formatacao == 0) {
+            altura = altura+salto;
+            printf("%d ", altura);
+            formatacao++;
+        } else {
+            altura = altura+salto;
+            printf("%d\n", altura);
+            formatacao--;
+        }
+        
+        //escorregou
+        if(aux != 0) {
+            if(formatacao == 0) {
+                altura -= escorrega;
+                printf("%d ", altura);
+                formatacao++;
+            } else {
+                altura -= escorrega;
+                printf("%d\n", altura);
+                formatacao--;
+            }
+        }
+        
+        //cansou
+        if(aux != 0) {
+            if(salto > 0) {
+                salto -=10;
+            } else {
+                salto = 0;
+            }
+        }
+        
+        //check fim
+        if((altura+salto) >= profundidade) {
+            printf("saiu");
+            break;
+        } else if(altura < 0) {
+            printf("morreu");
             break;
         }
-    }
-    
-    if(altura == 0 && ((altura+tamSalto)+10)==0) {
-        printf("%d %d\n", altura, (altura+tamSalto)+10);
-        printf("-30 morreu");
-        return 0;
-    }
-
-    printf("%d ", altura);
-    if(altura < 0) {
-        printf("morreu");
-    } else {
-        printf("saiu");
+        aux++;
     }
 }
