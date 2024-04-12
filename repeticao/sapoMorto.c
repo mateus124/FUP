@@ -7,24 +7,22 @@ int main()  {
 
     while(1) {
         //pulo
-        if(formatacao == 0) {
-            altura = altura+salto;
-            printf("%d ", altura);
+        altura = altura+salto;
+        if(formatacao == 0) { 
+            printf("%d ", altura); //Zero faz print a esquerda
             formatacao++;
         } else {
-            altura = altura+salto;
-            printf("%d\n", altura);
+            printf("%d\n", altura); //Quando for 1, o print é a direita e quebra linha
             formatacao--;
         }
         
         //escorregou
-        if(aux != 0) {
+        if(aux != 0) { //Aux é uma variável para não bugar no valor 0
+            altura -= escorrega;
             if(formatacao == 0) {
-                altura -= escorrega;
                 printf("%d ", altura);
                 formatacao++;
             } else {
-                altura -= escorrega;
                 printf("%d\n", altura);
                 formatacao--;
             }
@@ -34,13 +32,13 @@ int main()  {
         if(aux != 0) {
             if(salto > 0) {
                 salto -=10;
-            } else {
+            } else { //O tamanho do salto não pode ser negativo
                 salto = 0;
             }
         }
         
         //check fim
-        if((altura+salto) >= profundidade) {
+        if((altura+salto) >= profundidade) { //Se no próximo salto ele sair, já encerra o código
             printf("saiu");
             break;
         } else if(altura < 0) {
