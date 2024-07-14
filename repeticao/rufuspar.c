@@ -3,6 +3,7 @@
 int main() {
     char jogada;
     int jog1, jog2;
+    
     scanf("%c %d %d", &jogada, &jog1, &jog2);
     
     if(jogada == 'p') {
