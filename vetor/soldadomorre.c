@@ -12,15 +12,15 @@ int main() {
     for(int i = 0; i < qtdSoldados; i++) {
         if(vetor[i] != 1) {
             if(i == 0 ) {
-                if(vetor[i+1] == 1) {
+                if(vetor[i+1] == 0) {
                     resultado++;
                 }
             } else if(i == qtdSoldados-1) {
-                if(vetor[i-1] == 1) {
+                if(vetor[i-1] == 0) {
                     resultado++;
                 }
             } else {
-                if(vetor[i-1] == 1 || vetor[i+1] == 1) {
+                if(vetor[i-1] == 0 && vetor[i+1] == 0) {
                     resultado++;
                 }
             }
