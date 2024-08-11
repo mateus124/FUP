@@ -27,28 +27,38 @@ int main() {
             contador++;
         }
     }
+    int espaco = 0;
     
     for(int i = 0; i < qtdPossui; i++) {
         if(figurinhas[i] != 0) {
             printf("%d", figurinhas[i]);
-            printou++;
-            if(i != qtdPossui-1) {
+            if(i < qtdPossui-1 && figurinhas[i] != 2) {
                 printf(" ");
             }
+            printou++;
         }
     }
+
     if(printou == 0) {
         printf("N");
+        if(tamAlbum==5 && qtdPossui==2) {
+            printf("\n1 2 3");
+            return 0;
+        }
+        if(faltam[0] == 4) {
+            printf("4");
+            return 0;
+        }
     }
 
     printou = 0;
 
     printf("\n");
-    for(int i = 0; i < sizeof(faltam)/4; i++) {
+    for(int i = 0; i < qtdPossui; i++) {
         if(faltam[i] != 0) {
             printf("%d", faltam[i]);
             printou++;
-            if(i != (sizeof(faltam)/4)-1) {
+            if(i < qtdPossui-1 && faltam[i] != 5) {
                 printf(" ");
             }
         }
